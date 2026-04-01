@@ -13,25 +13,30 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .header p { font-size: 0.85rem; color: rgba(255,255,255,0.9); font-weight: 700; }
 
 .wrap { max-width: 460px; margin: 0 auto; padding: 16px; }
-
 .map-title { text-align: center; font-size: 1.1rem; font-weight: 900; color: #FF6B6B; margin: 14px 0; }
 
 .level-card { display: flex; align-items: center; gap: 12px; background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); cursor: pointer; border: 3px solid transparent; transition: transform 0.15s; }
 .level-card:hover { transform: translateY(-1px); }
-.level-card.locked { opacity: 0.4; cursor: not-allowed; }
 .level-card.done { border-color: #6BCB77; }
 .level-icon { font-size: 1.8rem; }
 .level-info { flex: 1; }
 .level-info h3 { font-weight: 900; font-size: 0.95rem; }
 .level-info p { font-size: 0.78rem; color: #aaa; }
 
+.test-card { display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(102,126,234,0.3); cursor: pointer; border: 3px solid transparent; transition: transform 0.15s; }
+.test-card:hover { transform: translateY(-1px); }
+.test-card.done { border-color: #FFD93D; }
+.test-card .level-info h3 { color: white; }
+.test-card .level-info p { color: rgba(255,255,255,0.8); }
+
 .screen { display: none; }
 .screen.active { display: block; }
 
 .level-header { background: linear-gradient(135deg, #FF6B6B, #FFD93D); padding: 14px 16px; }
+.test-header { background: linear-gradient(135deg, #667eea, #764ba2); padding: 14px 16px; }
 .level-header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .back-btn { background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 36px; height: 36px; color: white; font-weight: 900; font-size: 1rem; cursor: pointer; }
-.level-header-top span { font-weight: 900; color: white; }
+.level-header-top span { font-weight: 900; color: white; font-size: 0.95rem; }
 
 .tabs { display: flex; gap: 6px; }
 .tab { flex: 1; padding: 8px 4px; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 0.72rem; background: rgba(255,255,255,0.3); color: white; transition: all 0.2s; }
@@ -41,8 +46,9 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .progress-label { font-size: 0.75rem; color: #ccc; margin-bottom: 4px; }
 .progress-bar { height: 9px; background: #eee; border-radius: 10px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, #FF6B6B, #FFD93D); border-radius: 10px; transition: width 0.4s; }
+.progress-fill.purple { background: linear-gradient(90deg, #667eea, #764ba2); }
 
-.flashcard { border-radius: 20px; padding: 44px 20px; text-align: center; cursor: pointer; margin-bottom: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); transition: background 0.4s; }
+.flashcard { border-radius: 20px; padding: 44px 20px; text-align: center; cursor: pointer; margin-bottom: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
 .flashcard.front { background: linear-gradient(135deg, #4D96FF, #C77DFF); }
 .flashcard.back { background: linear-gradient(135deg, #6BCB77, #FFD93D); }
 .flashcard .word { font-size: 1.8rem; font-weight: 900; color: white; }
@@ -60,7 +66,7 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .answer-feedback.wrong { color: #c0392b; }
 
 .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-.option-btn { padding: 13px 8px; border: 3px solid #eee; border-radius: 12px; background: white; font-weight: 800; font-size: 0.95rem; cursor: pointer; color: #2d2d2d; transition: all 0.2s; }
+.option-btn { padding: 13px 8px; border: 3px solid #eee; border-radius: 12px; background: white; font-weight: 800; font-size: 0.95rem; cursor: pointer; color: #2d2d2d; }
 .option-btn.correct { background: #f0fff4; border-color: #6BCB77; color: #2d7a3a; }
 .option-btn.wrong { background: #fff0f0; border-color: #FF6B6B; color: #c0392b; }
 
@@ -73,13 +79,16 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .match-btn.bad { border-color: #FF6B6B; background: #fff0f0; }
 
 .success-box { text-align: center; padding: 12px; border-radius: 12px; margin-bottom: 10px; font-weight: 800; background: #f0fff4; color: #2d7a3a; }
-
 .wide-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #FF6B6B, #FFB347); color: white; border: none; border-radius: 14px; font-weight: 900; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
+.wide-btn.purple { background: linear-gradient(135deg, #667eea, #764ba2); }
 
 .complete-box { text-align: center; background: white; border-radius: 24px; padding: 40px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 20px; }
 .complete-box .emoji { font-size: 4rem; }
 .complete-box h2 { font-size: 2rem; font-weight: 900; color: #FF6B6B; margin: 12px 0 8px; }
-.complete-box p { color: #aaa; font-weight: 700; margin-bottom: 24px; }
+.complete-box h2.purple { color: #667eea; }
+.complete-box p { color: #aaa; font-weight: 700; margin-bottom: 24px; line-height: 1.6; }
+
+.phase-label { text-align: center; font-size: 0.78rem; font-weight: 800; color: #667eea; background: #f0f0ff; border-radius: 8px; padding: 6px; margin-bottom: 12px; }
 </style>
 </head>
 <body>
@@ -103,69 +112,77 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
       <button class="back-btn" onclick="showMap()">←</button>
       <span id="level-title"></span>
     </div>
-    <div class="tabs">
+    <div class="tabs" id="level-tabs">
       <button class="tab active" id="tab-flash" onclick="setMode('flash')">🃏 Cards</button>
       <button class="tab" id="tab-fill" onclick="setMode('fill')">✏️ Fill</button>
       <button class="tab" id="tab-match" onclick="setMode('match')">🔗 Match</button>
     </div>
   </div>
-  <div class="wrap">
-    <div id="mode-content"></div>
+  <div class="wrap"><div id="mode-content"></div></div>
+</div>
+
+<!-- TEST SCREEN -->
+<div id="test-screen" class="screen">
+  <div class="test-header">
+    <div class="level-header-top">
+      <button class="back-btn" onclick="showMap()">←</button>
+      <span id="test-title"></span>
+    </div>
   </div>
+  <div class="wrap"><div id="test-content"></div></div>
 </div>
 
 <script>
 const LEVELS = [
   { id:0, icon:"👨‍👩‍👧", color:"#FF6B6B", title:"Mi Familia", subtitle:"Family words",
     words:[{es:"mi familia",en:"my family"},{es:"mi padre",en:"my father"},{es:"mi madre",en:"my mother"},{es:"mis padres",en:"my parents"},{es:"mi hermano",en:"my brother"},{es:"mi hermana",en:"my sister"},{es:"mi abuelo",en:"my grandfather"},{es:"mi abuela",en:"my grandmother"},{es:"mis abuelos",en:"my grandparents"},{es:"mi tia",en:"my aunt"}],
-    sentences:[{q:"Ella es mi ___.",blank:"hermana",options:["hermana","hermano","madre","tia"]},{q:"El es mi ___.",blank:"padre",options:["padre","madre","hermano","abuelo"]},{q:"Ellos son mis ___.",blank:"abuelos",options:["abuelos","padres","hermanos","hijos"]},{q:"Ella es mi ___.",blank:"madre",options:["madre","hermana","abuela","tia"]}]
-  },
+    sentences:[{q:"Ella es mi ___.",blank:"hermana",options:["hermana","hermano","madre","tia"]},{q:"El es mi ___.",blank:"padre",options:["padre","madre","hermano","abuelo"]},{q:"Ellos son mis ___.",blank:"abuelos",options:["abuelos","padres","hermanos","hijos"]},{q:"Ella es mi ___.",blank:"madre",options:["madre","hermana","abuela","tia"]}]},
   { id:1, icon:"🔢", color:"#4D96FF", title:"Los Numeros", subtitle:"Numbers 1-20",
     words:[{es:"uno",en:"one"},{es:"dos",en:"two"},{es:"tres",en:"three"},{es:"cuatro",en:"four"},{es:"cinco",en:"five"},{es:"seis",en:"six"},{es:"siete",en:"seven"},{es:"ocho",en:"eight"},{es:"nueve",en:"nine"},{es:"diez",en:"ten"},{es:"veinte",en:"twenty"}],
-    sentences:[{q:"Uno + uno = ___.",blank:"dos",options:["dos","tres","cuatro","uno"]},{q:"Cinco + cinco = ___.",blank:"diez",options:["diez","cinco","ocho","veinte"]},{q:"Diez + diez = ___.",blank:"veinte",options:["veinte","nueve","doce","once"]},{q:"Tres + tres = ___.",blank:"seis",options:["seis","siete","ocho","cinco"]}]
-  },
+    sentences:[{q:"Uno + uno = ___.",blank:"dos",options:["dos","tres","cuatro","uno"]},{q:"Cinco + cinco = ___.",blank:"diez",options:["diez","cinco","ocho","veinte"]},{q:"Diez + diez = ___.",blank:"veinte",options:["veinte","nueve","doce","once"]},{q:"Tres + tres = ___.",blank:"seis",options:["seis","siete","ocho","cinco"]}]},
   { id:2, icon:"🎨", color:"#C77DFF", title:"Los Colores", subtitle:"Colours",
     words:[{es:"rojo",en:"red"},{es:"azul",en:"blue"},{es:"verde",en:"green"},{es:"amarillo",en:"yellow"},{es:"naranja",en:"orange"},{es:"morado",en:"purple"},{es:"rosa",en:"pink"},{es:"blanco",en:"white"},{es:"negro",en:"black"}],
-    sentences:[{q:"El sol es ___.",blank:"amarillo",options:["amarillo","azul","verde","rojo"]},{q:"El cielo es ___.",blank:"azul",options:["azul","rojo","negro","verde"]},{q:"La hierba es ___.",blank:"verde",options:["verde","rosa","morado","naranja"]},{q:"La noche es ___.",blank:"negro",options:["negro","blanco","gris","rojo"]}]
-  },
+    sentences:[{q:"El sol es ___.",blank:"amarillo",options:["amarillo","azul","verde","rojo"]},{q:"El cielo es ___.",blank:"azul",options:["azul","rojo","negro","verde"]},{q:"La hierba es ___.",blank:"verde",options:["verde","rosa","morado","naranja"]},{q:"La noche es ___.",blank:"negro",options:["negro","blanco","gris","rojo"]}]},
   { id:3, icon:"🤸", color:"#FF9F43", title:"El Cuerpo", subtitle:"Body parts",
     words:[{es:"la cabeza",en:"head"},{es:"los ojos",en:"eyes"},{es:"la nariz",en:"nose"},{es:"la boca",en:"mouth"},{es:"las orejas",en:"ears"},{es:"los brazos",en:"arms"},{es:"las manos",en:"hands"},{es:"las piernas",en:"legs"},{es:"los pies",en:"feet"}],
-    sentences:[{q:"Veo con los ___.",blank:"ojos",options:["ojos","pies","brazos","orejas"]},{q:"Escucho con las ___.",blank:"orejas",options:["orejas","manos","piernas","ojos"]},{q:"Camino con las ___.",blank:"piernas",options:["piernas","manos","orejas","nariz"]},{q:"Como con la ___.",blank:"boca",options:["boca","nariz","cabeza","mano"]}]
-  },
+    sentences:[{q:"Veo con los ___.",blank:"ojos",options:["ojos","pies","brazos","orejas"]},{q:"Escucho con las ___.",blank:"orejas",options:["orejas","manos","piernas","ojos"]},{q:"Camino con las ___.",blank:"piernas",options:["piernas","manos","orejas","nariz"]},{q:"Como con la ___.",blank:"boca",options:["boca","nariz","cabeza","mano"]}]},
   { id:4, icon:"🏠", color:"#6BCB77", title:"La Casa", subtitle:"Rooms at home",
     words:[{es:"la cocina",en:"kitchen"},{es:"el bano",en:"bathroom"},{es:"el dormitorio",en:"bedroom"},{es:"la sala",en:"living room"},{es:"el jardin",en:"garden"},{es:"la puerta",en:"door"},{es:"la ventana",en:"window"},{es:"la mesa",en:"table"},{es:"la cama",en:"bed"}],
-    sentences:[{q:"Duermo en el ___.",blank:"dormitorio",options:["dormitorio","bano","jardin","sala"]},{q:"Cocinamos en la ___.",blank:"cocina",options:["cocina","sala","cama","ventana"]},{q:"Las flores estan en el ___.",blank:"jardin",options:["jardin","bano","dormitorio","mesa"]},{q:"Veo la tele en la ___.",blank:"sala",options:["sala","cocina","jardin","puerta"]}]
-  },
+    sentences:[{q:"Duermo en el ___.",blank:"dormitorio",options:["dormitorio","bano","jardin","sala"]},{q:"Cocinamos en la ___.",blank:"cocina",options:["cocina","sala","cama","ventana"]},{q:"Las flores estan en el ___.",blank:"jardin",options:["jardin","bano","dormitorio","mesa"]},{q:"Veo la tele en la ___.",blank:"sala",options:["sala","cocina","jardin","puerta"]}]},
   { id:5, icon:"🍎", color:"#FFB347", title:"La Comida", subtitle:"Food and drinks",
     words:[{es:"el pan",en:"bread"},{es:"la leche",en:"milk"},{es:"el agua",en:"water"},{es:"la manzana",en:"apple"},{es:"el arroz",en:"rice"},{es:"el pollo",en:"chicken"},{es:"las verduras",en:"vegetables"},{es:"el queso",en:"cheese"},{es:"el huevo",en:"egg"}],
-    sentences:[{q:"Bebo ___ por la manana.",blank:"leche",options:["leche","arroz","queso","pan"]},{q:"Como una ___ verde.",blank:"manzana",options:["manzana","pollo","huevo","leche"]},{q:"El ___ es blanco.",blank:"arroz",options:["arroz","agua","pan","queso"]},{q:"Las ___ son buenas.",blank:"verduras",options:["verduras","manzana","leche","pan"]}]
-  },
+    sentences:[{q:"Bebo ___ por la manana.",blank:"leche",options:["leche","arroz","queso","pan"]},{q:"Como una ___ verde.",blank:"manzana",options:["manzana","pollo","huevo","leche"]},{q:"El ___ es blanco.",blank:"arroz",options:["arroz","agua","pan","queso"]},{q:"Las ___ son buenas.",blank:"verduras",options:["verduras","manzana","leche","pan"]}]},
   { id:6, icon:"🐶", color:"#FF6B6B", title:"Los Animales", subtitle:"Animals",
     words:[{es:"el perro",en:"dog"},{es:"el gato",en:"cat"},{es:"el pajaro",en:"bird"},{es:"el pez",en:"fish"},{es:"el caballo",en:"horse"},{es:"la vaca",en:"cow"},{es:"el elefante",en:"elephant"},{es:"el leon",en:"lion"},{es:"el conejo",en:"rabbit"}],
-    sentences:[{q:"El ___ nada en el agua.",blank:"pez",options:["pez","caballo","conejo","pajaro"]},{q:"El ___ es el rey de la selva.",blank:"leon",options:["leon","elefante","perro","gato"]},{q:"La ___ nos da leche.",blank:"vaca",options:["vaca","caballo","pajaro","gato"]},{q:"El ___ salta muy alto.",blank:"conejo",options:["conejo","perro","elefante","pajaro"]}]
-  },
+    sentences:[{q:"El ___ nada en el agua.",blank:"pez",options:["pez","caballo","conejo","pajaro"]},{q:"El ___ es el rey de la selva.",blank:"leon",options:["leon","elefante","perro","gato"]},{q:"La ___ nos da leche.",blank:"vaca",options:["vaca","caballo","pajaro","gato"]},{q:"El ___ salta muy alto.",blank:"conejo",options:["conejo","perro","elefante","pajaro"]}]},
   { id:7, icon:"🎒", color:"#4D96FF", title:"La Escuela", subtitle:"School things",
     words:[{es:"el libro",en:"book"},{es:"el cuaderno",en:"notebook"},{es:"el lapiz",en:"pencil"},{es:"la pluma",en:"pen"},{es:"la mochila",en:"backpack"},{es:"la regla",en:"ruler"},{es:"el borrador",en:"eraser"},{es:"el maestro",en:"teacher"},{es:"el escritorio",en:"desk"}],
-    sentences:[{q:"Escribo con el ___.",blank:"lapiz",options:["lapiz","libro","mochila","regla"]},{q:"Leo el ___ en clase.",blank:"libro",options:["libro","borrador","cuaderno","escritorio"]},{q:"Llevo mis cosas en la ___.",blank:"mochila",options:["mochila","pluma","regla","lapiz"]},{q:"El ___ ensena en la escuela.",blank:"maestro",options:["maestro","cuaderno","lapiz","borrador"]}]
-  },
+    sentences:[{q:"Escribo con el ___.",blank:"lapiz",options:["lapiz","libro","mochila","regla"]},{q:"Leo el ___ en clase.",blank:"libro",options:["libro","borrador","cuaderno","escritorio"]},{q:"Llevo mis cosas en la ___.",blank:"mochila",options:["mochila","pluma","regla","lapiz"]},{q:"El ___ ensena en la escuela.",blank:"maestro",options:["maestro","cuaderno","lapiz","borrador"]}]},
+];
+
+const TESTS = [
+  { id:0, title:"Test 1: Familia + Numeros", levels:[0,1] },
+  { id:1, title:"Test 2: Colores + Cuerpo",  levels:[2,3] },
+  { id:2, title:"Test 3: Casa + Comida",      levels:[4,5] },
+  { id:3, title:"Test 4: Animales + Escuela", levels:[6,7] },
 ];
 
 let done = JSON.parse(localStorage.getItem('rs_done') || '[]');
-let currentLevel = 0;
-let currentMode = 'flash';
-let fcIndex = 0;
-let fillIndex = 0;
-let fillAnswered = false;
-let matchSelEs = null;
-let matchSelEn = null;
-let matchMatched = [];
+let testsDone = JSON.parse(localStorage.getItem('rs_tests') || '[]');
+let currentLevel = 0, currentMode = 'flash';
+let fcIndex = 0, fcFlipped = false;
+let fillIndex = 0, fillAnswered = false;
+let matchSelEs = null, matchSelEn = null, matchMatched = [];
+let currentTest = 0, testQuestions = [], testIndex = 0, testAnswered = false;
 
 function saveDone() { localStorage.setItem('rs_done', JSON.stringify(done)); }
+function saveTests() { localStorage.setItem('rs_tests', JSON.stringify(testsDone)); }
 function shuffle(a) { return [...a].sort(() => Math.random() - 0.5); }
 
 function showMap() {
-  document.getElementById('map-screen').classList.add('active');
-  document.getElementById('level-screen').classList.remove('active');
+  ['map-screen','level-screen','test-screen'].forEach(id => {
+    document.getElementById(id).classList.toggle('active', id === 'map-screen');
+  });
   buildMap();
 }
 
@@ -173,218 +190,229 @@ function buildMap() {
   const list = document.getElementById('level-list');
   list.innerHTML = '';
   LEVELS.forEach((lv, i) => {
-    const unlocked = true;
     const completed = done.includes(i);
     const div = document.createElement('div');
-    div.className = 'level-card' + (completed ? ' done' : '') + (unlocked ? '' : ' locked');
-    div.innerHTML = `<div class="level-icon">${lv.icon}</div><div class="level-info"><h3 style="color:${lv.color}">Level ${i+1}: ${lv.title}</h3><p>${lv.subtitle}</p></div><div>${completed ? '✅' : unlocked ? '▶️' : '🔒'}</div>`;
-    if (unlocked) div.onclick = () => startLevel(i);
+    div.className = 'level-card' + (completed ? ' done' : '');
+    div.innerHTML = `<div class="level-icon">${lv.icon}</div><div class="level-info"><h3 style="color:${lv.color}">Level ${i+1}: ${lv.title}</h3><p>${lv.subtitle}</p></div><div>${completed?'✅':'▶️'}</div>`;
+    div.onclick = () => startLevel(i);
     list.appendChild(div);
+    if (i % 2 === 1) {
+      const ti = Math.floor(i / 2);
+      const tc = testsDone.includes(ti);
+      const tdiv = document.createElement('div');
+      tdiv.className = 'test-card' + (tc ? ' done' : '');
+      tdiv.innerHTML = `<div class="level-icon">🧪</div><div class="level-info"><h3>${TESTS[ti].title}</h3><p>Mixed test • Fill in blank + Match</p></div><div style="font-size:1.3rem">${tc?'🏆':'▶️'}</div>`;
+      tdiv.onclick = () => startTest(ti);
+      list.appendChild(tdiv);
+    }
   });
 }
 
+// ── LEVEL ──
 function startLevel(idx) {
-  currentLevel = idx;
-  currentMode = 'flash';
-  fcIndex = 0;
-  fillIndex = 0;
-  fillAnswered = false;
+  currentLevel = idx; currentMode = 'flash';
+  fcIndex = 0; fcFlipped = false; fillIndex = 0; fillAnswered = false;
   document.getElementById('map-screen').classList.remove('active');
+  document.getElementById('test-screen').classList.remove('active');
   document.getElementById('level-screen').classList.add('active');
+  document.getElementById('level-tabs').style.display = 'flex';
   document.getElementById('level-title').textContent = LEVELS[idx].icon + ' ' + LEVELS[idx].title;
   setMode('flash');
 }
 
 function setMode(mode) {
   currentMode = mode;
-  ['flash','fill','match'].forEach(m => {
-    document.getElementById('tab-' + m).classList.toggle('active', m === mode);
-  });
-  if (mode === 'flash') renderFlash();
-  if (mode === 'fill') { fillIndex = 0; fillAnswered = false; renderFill(); }
-  if (mode === 'match') renderMatch();
-}
-
-function updateProgress(n, t) {
-  const c = document.getElementById('mode-content');
-  const bar = c.querySelector('.progress-fill');
-  const label = c.querySelector('.progress-label');
-  if (bar) bar.style.width = Math.round(n/t*100) + '%';
-  if (label) label.textContent = n + ' of ' + t;
+  ['flash','fill','match'].forEach(m => { const t=document.getElementById('tab-'+m); if(t) t.classList.toggle('active', m===mode); });
+  if (mode==='flash') renderFlash();
+  if (mode==='fill') { fillIndex=0; fillAnswered=false; renderFill(); }
+  if (mode==='match') renderMatch();
 }
 
 function renderFlash() {
-  const words = LEVELS[currentLevel].words;
-  const w = words[fcIndex];
+  const words = LEVELS[currentLevel].words; const w = words[fcIndex]; fcFlipped = false;
   document.getElementById('mode-content').innerHTML = `
     <div class="progress-wrap"><div class="progress-label">${fcIndex+1} of ${words.length}</div><div class="progress-bar"><div class="progress-fill" style="width:${Math.round((fcIndex+1)/words.length*100)}%"></div></div></div>
-    <div class="flashcard front" id="fc" onclick="flipCard()">
-      <div class="word" id="fc-word">${w.es}</div>
-      <div class="hint" id="fc-hint">tap to see English</div>
-    </div>
+    <div class="flashcard front" id="fc" onclick="flipCard()"><div class="word" id="fc-word">${w.es}</div><div class="hint" id="fc-hint">tap to see English</div></div>
     <div class="fc-nav">
       <button class="circle-btn" onclick="fcMove(-1)" ${fcIndex===0?'disabled':''}>←</button>
       <span class="fc-count">${fcIndex+1}/${words.length}</span>
       <button class="circle-btn" onclick="fcMove(1)" ${fcIndex===words.length-1?'disabled':''}>→</button>
     </div>
-    <button class="wide-btn" onclick="setMode('fill')">Next: Fill in the Blank ✏️</button>
-  `;
+    <button class="wide-btn" onclick="setMode('fill')">Next: Fill in the Blank ✏️</button>`;
 }
-
-let fcFlipped = false;
 function flipCard() {
-  fcFlipped = !fcFlipped;
-  const w = LEVELS[currentLevel].words[fcIndex];
-  const fc = document.getElementById('fc');
-  const word = document.getElementById('fc-word');
-  const hint = document.getElementById('fc-hint');
-  fc.className = 'flashcard ' + (fcFlipped ? 'back' : 'front');
-  word.textContent = fcFlipped ? w.en : w.es;
-  hint.textContent = fcFlipped ? 'tap to flip back' : 'tap to see English';
+  fcFlipped=!fcFlipped; const w=LEVELS[currentLevel].words[fcIndex];
+  document.getElementById('fc').className='flashcard '+(fcFlipped?'back':'front');
+  document.getElementById('fc-word').textContent=fcFlipped?w.en:w.es;
+  document.getElementById('fc-hint').textContent=fcFlipped?'tap to flip back':'tap to see English';
 }
-
-function fcMove(dir) {
-  const words = LEVELS[currentLevel].words;
-  fcIndex = Math.max(0, Math.min(words.length - 1, fcIndex + dir));
-  fcFlipped = false;
-  renderFlash();
-}
+function fcMove(dir) { fcIndex=Math.max(0,Math.min(LEVELS[currentLevel].words.length-1,fcIndex+dir)); renderFlash(); }
 
 function renderFill() {
-  const sents = LEVELS[currentLevel].sentences;
-  const q = sents[fillIndex];
-  const opts = shuffle(q.options);
+  const sents=LEVELS[currentLevel].sentences; const q=sents[fillIndex]; const opts=shuffle(q.options);
   document.getElementById('mode-content').innerHTML = `
     <div class="progress-wrap"><div class="progress-label">${fillIndex+1} of ${sents.length}</div><div class="progress-bar"><div class="progress-fill" style="width:${Math.round((fillIndex+1)/sents.length*100)}%"></div></div></div>
-    <div class="question-box">
-      <div class="question-text" id="q-text">${q.q.replace('___','______')}</div>
-      <div class="answer-feedback" id="q-fb"></div>
-    </div>
-    <div class="options-grid" id="opts-grid">
-      ${opts.map(o => `<button class="option-btn" onclick="pickFill('${o}')">${o}</button>`).join('')}
-    </div>
-    <div id="fill-next"></div>
-  `;
+    <div class="question-box"><div class="question-text" id="q-text">${q.q.replace('___','______')}</div><div class="answer-feedback" id="q-fb"></div></div>
+    <div class="options-grid" id="opts-grid">${opts.map(o=>`<button class="option-btn" onclick="pickFill('${o}')">${o}</button>`).join('')}</div>
+    <div id="fill-next"></div>`;
 }
-
 function pickFill(chosen) {
-  if (fillAnswered) return;
-  fillAnswered = true;
-  const q = LEVELS[currentLevel].sentences[fillIndex];
-  document.getElementById('q-text').textContent = q.q.replace('___', '[ ' + chosen + ' ]');
-  const fb = document.getElementById('q-fb');
-  if (chosen === q.blank) { fb.textContent = 'Correct! ✅'; fb.className = 'answer-feedback correct'; }
-  else { fb.textContent = 'Answer: ' + q.blank; fb.className = 'answer-feedback wrong'; }
-  document.querySelectorAll('.option-btn').forEach(btn => {
-    if (btn.textContent === q.blank) btn.classList.add('correct');
-    else if (btn.textContent === chosen) btn.classList.add('wrong');
-    btn.onclick = null;
+  if (fillAnswered) return; fillAnswered=true;
+  const q=LEVELS[currentLevel].sentences[fillIndex];
+  document.getElementById('q-text').textContent=q.q.replace('___','[ '+chosen+' ]');
+  const fb=document.getElementById('q-fb');
+  fb.textContent=chosen===q.blank?'Correct! ✅':'Answer: '+q.blank;
+  fb.className='answer-feedback '+(chosen===q.blank?'correct':'wrong');
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    if(btn.textContent===q.blank)btn.classList.add('correct');
+    else if(btn.textContent===chosen)btn.classList.add('wrong');
+    btn.onclick=null;
   });
-  const sents = LEVELS[currentLevel].sentences;
-  const label = fillIndex < sents.length - 1 ? 'Next →' : 'Next: Match 🔗';
-  const action = fillIndex < sents.length - 1 ? 'nextFill()' : "setMode('match')";
-  document.getElementById('fill-next').innerHTML = `<button class="wide-btn" onclick="${action}">${label}</button>`;
+  const sents=LEVELS[currentLevel].sentences;
+  const label=fillIndex<sents.length-1?'Next →':'Next: Match 🔗';
+  const action=fillIndex<sents.length-1?'nextFill()':"setMode('match')";
+  document.getElementById('fill-next').innerHTML=`<button class="wide-btn" onclick="${action}">${label}</button>`;
 }
+function nextFill() { fillIndex++; fillAnswered=false; renderFill(); }
 
-function nextFill() {
-  fillIndex++;
-  fillAnswered = false;
-  renderFill();
-}
-
-function renderMatch() {
-  const words = LEVELS[currentLevel].words.slice(0, 6);
-  const lefts = shuffle(words);
-  const rights = shuffle(words);
-  matchSelEs = null; matchSelEn = null; matchMatched = [];
-  window._matchWords = words; window._matchLefts = lefts; window._matchRights = rights;
-
-  document.getElementById('mode-content').innerHTML = `
-    <div class="progress-wrap"><div class="progress-label">0 of ${words.length}</div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div>
+function renderMatch(container, words, onDone, purple) {
+  container = container || 'mode-content';
+  words = words || LEVELS[currentLevel].words.slice(0,6);
+  purple = purple || false;
+  const lefts=shuffle(words); const rights=shuffle(words);
+  matchSelEs=null; matchSelEn=null; matchMatched=[];
+  window._mW=words; window._mL=lefts; window._mR=rights;
+  window._mContainer=container; window._mOnDone=onDone; window._mPurple=purple;
+  const leftFn = purple ? 'tapTestLeft' : 'tapLeft';
+  const rightFn = purple ? 'tapTestRight' : 'tapRight';
+  const fillClass = purple ? ' purple' : '';
+  document.getElementById(container).innerHTML = `
+    <div class="progress-wrap"><div class="progress-label">0 of ${words.length}</div><div class="progress-bar"><div class="progress-fill${fillClass}" style="width:0%"></div></div></div>
     <p class="match-hint">Tap Spanish, then its English match!</p>
     <div class="match-grid">
-      <div class="match-col" id="match-left">
-        ${lefts.map(w => `<button class="match-btn" id="ml-${w.es.replace(/ /g,'_')}" onclick="tapLeft('${w.es}')">${w.es}</button>`).join('')}
-      </div>
-      <div class="match-col" id="match-right">
-        ${rights.map(w => `<button class="match-btn" id="mr-${w.en.replace(/ /g,'_')}" onclick="tapRight('${w.en}')">${w.en}</button>`).join('')}
-      </div>
+      <div class="match-col" id="match-left">${lefts.map(w=>`<button class="match-btn" id="ml-${w.es.replace(/ /g,'_')}" onclick="${leftFn}('${w.es}')">${w.es}</button>`).join('')}</div>
+      <div class="match-col" id="match-right">${rights.map(w=>`<button class="match-btn" id="mr-${w.en.replace(/ /g,'_')}" onclick="${rightFn}('${w.en}')">${w.en}</button>`).join('')}</div>
     </div>
-    <div id="match-success"></div>
-  `;
+    <div id="match-success"></div>`;
 }
 
 function tapLeft(es) {
-  if (matchMatched.includes(es)) return;
-  if (matchSelEs === es) { matchSelEs = null; refreshMatchUI(); return; }
-  matchSelEs = es;
-  refreshMatchUI();
-  if (matchSelEs && matchSelEn) checkMatch();
+  if(matchMatched.includes(es))return;
+  matchSelEs=matchSelEs===es?null:es; refreshMatchUI();
+  if(matchSelEs&&matchSelEn)checkMatch(false);
 }
-
 function tapRight(en) {
-  const matchedEns = matchMatched.map(es => window._matchWords.find(w=>w.es===es)?.en);
-  if (matchedEns.includes(en)) return;
-  if (matchSelEn === en) { matchSelEn = null; refreshMatchUI(); return; }
-  matchSelEn = en;
-  refreshMatchUI();
-  if (matchSelEs && matchSelEn) checkMatch();
+  const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
+  if(mEns.includes(en))return;
+  matchSelEn=matchSelEn===en?null:en; refreshMatchUI();
+  if(matchSelEs&&matchSelEn)checkMatch(false);
+}
+function tapTestLeft(es) {
+  if(matchMatched.includes(es))return;
+  matchSelEs=matchSelEs===es?null:es; refreshMatchUI();
+  if(matchSelEs&&matchSelEn)checkMatch(true);
+}
+function tapTestRight(en) {
+  const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
+  if(mEns.includes(en))return;
+  matchSelEn=matchSelEn===en?null:en; refreshMatchUI();
+  if(matchSelEs&&matchSelEn)checkMatch(true);
 }
 
-function checkMatch() {
-  const word = window._matchWords.find(w => w.es === matchSelEs);
-  if (word && word.en === matchSelEn) {
-    matchMatched.push(matchSelEs);
-    matchSelEs = null; matchSelEn = null;
-    refreshMatchUI();
-    const n = matchMatched.length, t = window._matchWords.length;
-    const bar = document.querySelector('.progress-fill');
-    const label = document.querySelector('.progress-label');
-    if (bar) bar.style.width = Math.round(n/t*100) + '%';
-    if (label) label.textContent = n + ' of ' + t;
-    if (n === t) {
-      document.getElementById('match-success').innerHTML = `
-        <div class="success-box">All matched! Well done Rishika! 🎉</div>
-        <button class="wide-btn" onclick="completeLevel()">Complete Level ✓</button>`;
+function checkMatch(isTest) {
+  const word=window._mW.find(w=>w.es===matchSelEs);
+  if(word&&word.en===matchSelEn) {
+    matchMatched.push(matchSelEs); matchSelEs=null; matchSelEn=null; refreshMatchUI();
+    const n=matchMatched.length,t=window._mW.length;
+    const bar=document.querySelector('#'+window._mContainer+' .progress-fill');
+    const lbl=document.querySelector('#'+window._mContainer+' .progress-label');
+    if(bar)bar.style.width=Math.round(n/t*100)+'%';
+    if(lbl)lbl.textContent=n+' of '+t;
+    if(n===t) {
+      const btnClass='wide-btn'+(isTest?' purple':'');
+      document.getElementById('match-success').innerHTML=`<div class="success-box">All matched! 🎉</div><button class="${btnClass}" onclick="window._mOnDone()">Continue →</button>`;
     }
   } else {
-    const badEs = matchSelEs, badEn = matchSelEn;
-    matchSelEs = null; matchSelEn = null;
-    refreshMatchUI(badEs, badEn);
-    setTimeout(() => refreshMatchUI(), 500);
+    const bEs=matchSelEs,bEn=matchSelEn; matchSelEs=null; matchSelEn=null;
+    refreshMatchUI(bEs,bEn); setTimeout(()=>refreshMatchUI(),500);
   }
 }
 
-function refreshMatchUI(badEs, badEn) {
-  const matchedEns = matchMatched.map(es => window._matchWords.find(w=>w.es===es)?.en);
-  window._matchLefts.forEach(w => {
-    const btn = document.getElementById('ml-' + w.es.replace(/ /g,'_'));
-    if (!btn) return;
-    if (matchMatched.includes(w.es)) { btn.className = 'match-btn matched'; }
-    else if (w.es === badEs) { btn.className = 'match-btn bad'; }
-    else if (w.es === matchSelEs) { btn.className = 'match-btn selected'; }
-    else { btn.className = 'match-btn'; }
-  });
-  window._matchRights.forEach(w => {
-    const btn = document.getElementById('mr-' + w.en.replace(/ /g,'_'));
-    if (!btn) return;
-    if (matchedEns.includes(w.en)) { btn.className = 'match-btn matched'; }
-    else if (w.en === badEn) { btn.className = 'match-btn bad'; }
-    else if (w.en === matchSelEn) { btn.className = 'match-btn selected'; }
-    else { btn.className = 'match-btn'; }
-  });
+function refreshMatchUI(bEs,bEn) {
+  const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
+  window._mL.forEach(w=>{const b=document.getElementById('ml-'+w.es.replace(/ /g,'_'));if(!b)return;b.className='match-btn'+(matchMatched.includes(w.es)?' matched':w.es===bEs?' bad':w.es===matchSelEs?' selected':'');});
+  window._mR.forEach(w=>{const b=document.getElementById('mr-'+w.en.replace(/ /g,'_'));if(!b)return;b.className='match-btn'+(mEns.includes(w.en)?' matched':w.en===bEn?' bad':w.en===matchSelEn?' selected':'');});
 }
 
 function completeLevel() {
-  if (!done.includes(currentLevel)) { done.push(currentLevel); saveDone(); }
-  document.getElementById('mode-content').innerHTML = `
-    <div class="complete-box">
-      <div class="emoji">🎉</div>
-      <h2>Muy Bien!</h2>
-      <p>You finished this level! Great work, Rishika!</p>
-      <button class="wide-btn" onclick="showMap()">Back to Map 🗺️</button>
-    </div>`;
-  document.querySelector('.tabs').style.display = 'none';
+  if(!done.includes(currentLevel)){done.push(currentLevel);saveDone();}
+  document.getElementById('mode-content').innerHTML=`
+    <div class="complete-box"><div class="emoji">🎉</div><h2>Muy Bien!</h2>
+    <p>You finished Level ${currentLevel+1}!<br>Great work, Rishika!</p>
+    <button class="wide-btn" onclick="showMap()">Back to Map 🗺️</button></div>`;
+  document.getElementById('level-tabs').style.display='none';
+}
+
+// ── TEST ──
+function startTest(testIdx) {
+  currentTest=testIdx; testIndex=0; testAnswered=false;
+  const test=TESTS[testIdx];
+  document.getElementById('test-title').textContent='🧪 '+test.title;
+  ['map-screen','level-screen'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('test-screen').classList.add('active');
+  const allSents=[];
+  test.levels.forEach(lvIdx=>LEVELS[lvIdx].sentences.forEach(s=>allSents.push(s)));
+  testQuestions=shuffle(allSents);
+  renderTestFill();
+}
+
+function renderTestFill() {
+  const q=testQuestions[testIndex]; const opts=shuffle(q.options); const total=testQuestions.length;
+  document.getElementById('test-content').innerHTML=`
+    <div class="phase-label">✏️ Fill in the Blank — Question ${testIndex+1} of ${total}</div>
+    <div class="progress-wrap"><div class="progress-label">${testIndex+1} of ${total}</div><div class="progress-bar"><div class="progress-fill purple" style="width:${Math.round((testIndex+1)/total*100)}%"></div></div></div>
+    <div class="question-box"><div class="question-text" id="tq-text">${q.q.replace('___','______')}</div><div class="answer-feedback" id="tq-fb"></div></div>
+    <div class="options-grid" id="test-opts">${opts.map(o=>`<button class="option-btn" onclick="pickTestFill('${o}')">${o}</button>`).join('')}</div>
+    <div id="test-next"></div>`;
+}
+
+function pickTestFill(chosen) {
+  if(testAnswered)return; testAnswered=true;
+  const q=testQuestions[testIndex];
+  document.getElementById('tq-text').textContent=q.q.replace('___','[ '+chosen+' ]');
+  const fb=document.getElementById('tq-fb');
+  fb.textContent=chosen===q.blank?'Correct! ✅':'Answer: '+q.blank;
+  fb.className='answer-feedback '+(chosen===q.blank?'correct':'wrong');
+  document.querySelectorAll('#test-opts .option-btn').forEach(btn=>{
+    if(btn.textContent===q.blank)btn.classList.add('correct');
+    else if(btn.textContent===chosen)btn.classList.add('wrong');
+    btn.onclick=null;
+  });
+  const total=testQuestions.length;
+  if(testIndex<total-1) {
+    document.getElementById('test-next').innerHTML=`<button class="wide-btn purple" onclick="nextTestQ()">Next →</button>`;
+  } else {
+    document.getElementById('test-next').innerHTML=`<button class="wide-btn purple" onclick="startTestMatch()">Now: Match the Words 🔗</button>`;
+  }
+}
+
+function nextTestQ() { testIndex++; testAnswered=false; renderTestFill(); }
+
+function startTestMatch() {
+  const test=TESTS[currentTest];
+  const allWords=[];
+  test.levels.forEach(lvIdx=>LEVELS[lvIdx].words.forEach(w=>allWords.push(w)));
+  const pick=shuffle(allWords).slice(0,8);
+  document.getElementById('test-content').innerHTML=`<div class="phase-label">🔗 Match the Words — Mix of both topics!</div><div id="match-area"></div>`;
+  renderMatch('match-area', pick, showTestComplete, true);
+}
+
+function showTestComplete() {
+  if(!testsDone.includes(currentTest)){testsDone.push(currentTest);saveTests();}
+  document.getElementById('test-content').innerHTML=`
+    <div class="complete-box"><div class="emoji">🏆</div><h2 class="purple">Well Done!</h2>
+    <p>You completed ${TESTS[currentTest].title}!<br>You are doing so well, Rishika!<br>Keep it up! ⭐</p>
+    <button class="wide-btn purple" onclick="showMap()">Back to Map 🗺️</button></div>`;
 }
 
 buildMap();
