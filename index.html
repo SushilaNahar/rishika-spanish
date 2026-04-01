@@ -3,28 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FF6B6B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Aprende Espanol - Rishika</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
+html { background: #FF6B6B; }
+body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; max-width: 480px; margin: 0 auto; }
 
-.header { background: linear-gradient(135deg, #FF6B6B, #FFD93D); padding: 20px; text-align: center; }
+.header { background: #FF6B6B; background: -webkit-linear-gradient(135deg, #FF6B6B, #FFD93D); background: linear-gradient(135deg, #FF6B6B, #FFD93D); padding: 20px; text-align: center; }
 .header h1 { font-size: 1.6rem; font-weight: 900; color: white; text-shadow: 2px 2px 0 rgba(0,0,0,0.15); }
 .header p { font-size: 0.85rem; color: rgba(255,255,255,0.9); font-weight: 700; }
 
-.wrap { max-width: 460px; margin: 0 auto; padding: 16px; }
+.wrap { padding: 16px; }
 .map-title { text-align: center; font-size: 1.1rem; font-weight: 900; color: #FF6B6B; margin: 14px 0; }
 
-.level-card { display: flex; align-items: center; gap: 12px; background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); cursor: pointer; border: 3px solid transparent; transition: transform 0.15s; }
-.level-card:hover { transform: translateY(-1px); }
+.level-card { display: flex; align-items: center; gap: 12px; background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); cursor: pointer; border: 3px solid transparent; }
 .level-card.done { border-color: #6BCB77; }
-.level-icon { font-size: 1.8rem; }
+.level-icon { font-size: 1.8rem; flex-shrink: 0; }
 .level-info { flex: 1; }
 .level-info h3 { font-weight: 900; font-size: 0.95rem; }
-.level-info p { font-size: 0.78rem; color: #aaa; }
+.level-info p { font-size: 0.78rem; color: #aaa; margin-top: 2px; }
 
-.test-card { display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(102,126,234,0.3); cursor: pointer; border: 3px solid transparent; transition: transform 0.15s; }
-.test-card:hover { transform: translateY(-1px); }
+.test-card { display: flex; align-items: center; gap: 12px; background: #667eea; background: -webkit-linear-gradient(135deg, #667eea, #764ba2); background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(102,126,234,0.3); cursor: pointer; border: 3px solid transparent; }
 .test-card.done { border-color: #FFD93D; }
 .test-card .level-info h3 { color: white; }
 .test-card .level-info p { color: rgba(255,255,255,0.8); }
@@ -32,25 +34,25 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .screen { display: none; }
 .screen.active { display: block; }
 
-.level-header { background: linear-gradient(135deg, #FF6B6B, #FFD93D); padding: 14px 16px; }
-.test-header { background: linear-gradient(135deg, #667eea, #764ba2); padding: 14px 16px; }
-.level-header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.back-btn { background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 36px; height: 36px; color: white; font-weight: 900; font-size: 1rem; cursor: pointer; }
-.level-header-top span { font-weight: 900; color: white; font-size: 0.95rem; }
+.top-bar { background: #FF6B6B; background: -webkit-linear-gradient(135deg, #FF6B6B, #FFD93D); background: linear-gradient(135deg, #FF6B6B, #FFD93D); padding: 14px 16px; }
+.top-bar.purple { background: #667eea; background: -webkit-linear-gradient(135deg, #667eea, #764ba2); background: linear-gradient(135deg, #667eea, #764ba2); }
+.top-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.back-btn { background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 36px; height: 36px; color: white; font-weight: 900; font-size: 1rem; cursor: pointer; flex-shrink: 0; }
+.top-bar-row span { font-weight: 900; color: white; font-size: 0.95rem; }
 
 .tabs { display: flex; gap: 6px; }
-.tab { flex: 1; padding: 8px 4px; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 0.72rem; background: rgba(255,255,255,0.3); color: white; transition: all 0.2s; }
+.tab { flex: 1; padding: 8px 4px; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 0.72rem; background: rgba(255,255,255,0.3); color: white; }
 .tab.active { background: white; color: #FF6B6B; }
 
 .progress-wrap { margin-bottom: 14px; }
 .progress-label { font-size: 0.75rem; color: #ccc; margin-bottom: 4px; }
 .progress-bar { height: 9px; background: #eee; border-radius: 10px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #FF6B6B, #FFD93D); border-radius: 10px; transition: width 0.4s; }
-.progress-fill.purple { background: linear-gradient(90deg, #667eea, #764ba2); }
+.progress-fill { height: 100%; background: #FF6B6B; background: -webkit-linear-gradient(90deg, #FF6B6B, #FFD93D); background: linear-gradient(90deg, #FF6B6B, #FFD93D); border-radius: 10px; transition: width 0.4s; }
+.progress-fill.purple { background: #667eea; background: -webkit-linear-gradient(90deg, #667eea, #764ba2); background: linear-gradient(90deg, #667eea, #764ba2); }
 
 .flashcard { border-radius: 20px; padding: 44px 20px; text-align: center; cursor: pointer; margin-bottom: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
-.flashcard.front { background: linear-gradient(135deg, #4D96FF, #C77DFF); }
-.flashcard.back { background: linear-gradient(135deg, #6BCB77, #FFD93D); }
+.flashcard.front { background: #4D96FF; background: -webkit-linear-gradient(135deg, #4D96FF, #C77DFF); background: linear-gradient(135deg, #4D96FF, #C77DFF); }
+.flashcard.back { background: #6BCB77; background: -webkit-linear-gradient(135deg, #6BCB77, #FFD93D); background: linear-gradient(135deg, #6BCB77, #FFD93D); }
 .flashcard .word { font-size: 1.8rem; font-weight: 900; color: white; }
 .flashcard .hint { font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-top: 10px; }
 
@@ -73,14 +75,15 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .match-hint { text-align: center; color: #bbb; font-size: 0.82rem; margin-bottom: 12px; }
 .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
 .match-col { display: flex; flex-direction: column; gap: 8px; }
-.match-btn { padding: 11px 8px; border-radius: 10px; font-weight: 800; font-size: 0.83rem; border: 3px solid #eee; background: white; color: #2d2d2d; cursor: pointer; transition: all 0.2s; }
+.match-btn { padding: 11px 8px; border-radius: 10px; font-weight: 800; font-size: 0.83rem; border: 3px solid #eee; background: white; color: #2d2d2d; cursor: pointer; }
 .match-btn.selected { border-color: #4D96FF; background: #f0f8ff; }
 .match-btn.matched { border-color: #6BCB77; background: #f0fff4; color: #2d7a3a; pointer-events: none; }
 .match-btn.bad { border-color: #FF6B6B; background: #fff0f0; }
 
 .success-box { text-align: center; padding: 12px; border-radius: 12px; margin-bottom: 10px; font-weight: 800; background: #f0fff4; color: #2d7a3a; }
-.wide-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #FF6B6B, #FFB347); color: white; border: none; border-radius: 14px; font-weight: 900; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
-.wide-btn.purple { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+.wide-btn { width: 100%; padding: 14px; background: #FF6B6B; background: -webkit-linear-gradient(135deg, #FF6B6B, #FFB347); background: linear-gradient(135deg, #FF6B6B, #FFB347); color: white; border: none; border-radius: 14px; font-weight: 900; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
+.wide-btn.purple { background: #667eea; background: -webkit-linear-gradient(135deg, #667eea, #764ba2); background: linear-gradient(135deg, #667eea, #764ba2); }
 
 .complete-box { text-align: center; background: white; border-radius: 24px; padding: 40px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 20px; }
 .complete-box .emoji { font-size: 4rem; }
@@ -89,11 +92,12 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
 .complete-box p { color: #aaa; font-weight: 700; margin-bottom: 24px; line-height: 1.6; }
 
 .phase-label { text-align: center; font-size: 0.78rem; font-weight: 800; color: #667eea; background: #f0f0ff; border-radius: 8px; padding: 6px; margin-bottom: 12px; }
+.review-note { text-align: center; font-size: 0.75rem; color: #FF9F43; font-weight: 700; background: #fff8f0; border-radius: 8px; padding: 6px; margin-bottom: 12px; }
 </style>
 </head>
 <body>
 
-<!-- MAP SCREEN -->
+<!-- MAP -->
 <div id="map-screen" class="screen active">
   <div class="header">
     <h1>🌟 Aprende Espanol!</h1>
@@ -105,10 +109,10 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
   </div>
 </div>
 
-<!-- LEVEL SCREEN -->
+<!-- LEVEL -->
 <div id="level-screen" class="screen">
-  <div class="level-header">
-    <div class="level-header-top">
+  <div class="top-bar" id="level-top">
+    <div class="top-bar-row">
       <button class="back-btn" onclick="showMap()">←</button>
       <span id="level-title"></span>
     </div>
@@ -121,10 +125,10 @@ body { font-family: sans-serif; background: #FFF8F0; min-height: 100vh; }
   <div class="wrap"><div id="mode-content"></div></div>
 </div>
 
-<!-- TEST SCREEN -->
+<!-- TEST -->
 <div id="test-screen" class="screen">
-  <div class="test-header">
-    <div class="level-header-top">
+  <div class="top-bar purple">
+    <div class="top-bar-row">
       <button class="back-btn" onclick="showMap()">←</button>
       <span id="test-title"></span>
     </div>
@@ -161,10 +165,10 @@ const LEVELS = [
 ];
 
 const TESTS = [
-  { id:0, title:"Test 1: Familia + Numeros", levels:[0,1] },
-  { id:1, title:"Test 2: Colores + Cuerpo",  levels:[2,3] },
-  { id:2, title:"Test 3: Casa + Comida",      levels:[4,5] },
-  { id:3, title:"Test 4: Animales + Escuela", levels:[6,7] },
+  { id:0, title:"Test 1", newLevels:[0,1] },
+  { id:1, title:"Test 2", newLevels:[2,3] },
+  { id:2, title:"Test 3", newLevels:[4,5] },
+  { id:3, title:"Test 4", newLevels:[6,7] },
 ];
 
 let done = JSON.parse(localStorage.getItem('rs_done') || '[]');
@@ -179,10 +183,41 @@ function saveDone() { localStorage.setItem('rs_done', JSON.stringify(done)); }
 function saveTests() { localStorage.setItem('rs_tests', JSON.stringify(testsDone)); }
 function shuffle(a) { return [...a].sort(() => Math.random() - 0.5); }
 
-function showMap() {
-  ['map-screen','level-screen','test-screen'].forEach(id => {
-    document.getElementById(id).classList.toggle('active', id === 'map-screen');
+// Build mixed test questions from ALL completed levels + the new 2 levels
+function buildTestQuestions(testIdx) {
+  const test = TESTS[testIdx];
+  // Always include the 2 new levels' sentences
+  const newSents = [];
+  test.newLevels.forEach(lvIdx => LEVELS[lvIdx].sentences.forEach(s => newSents.push(s)));
+  // Pull random sentences from all previously completed levels
+  const prevSents = [];
+  LEVELS.forEach((lv, i) => {
+    if (!test.newLevels.includes(i)) {
+      lv.sentences.forEach(s => prevSents.push(s));
+    }
   });
+  const prevPick = shuffle(prevSents).slice(0, 4); // up to 4 random previous questions
+  return shuffle([...newSents, ...prevPick]);
+}
+
+// Build mixed match words from ALL levels (new + previous random)
+function buildTestMatchWords(testIdx) {
+  const test = TESTS[testIdx];
+  const newWords = [];
+  test.newLevels.forEach(lvIdx => LEVELS[lvIdx].words.forEach(w => newWords.push(w)));
+  const prevWords = [];
+  LEVELS.forEach((lv, i) => {
+    if (!test.newLevels.includes(i)) {
+      lv.words.forEach(w => prevWords.push(w));
+    }
+  });
+  const prevPick = shuffle(prevWords).slice(0, 4);
+  return shuffle([...newWords.slice(0, 4), ...prevPick]).slice(0, 8);
+}
+
+function showMap() {
+  ['map-screen','level-screen','test-screen'].forEach(id =>
+    document.getElementById(id).classList.toggle('active', id === 'map-screen'));
   buildMap();
 }
 
@@ -199,9 +234,10 @@ function buildMap() {
     if (i % 2 === 1) {
       const ti = Math.floor(i / 2);
       const tc = testsDone.includes(ti);
+      const newLvNames = TESTS[ti].newLevels.map(l => LEVELS[l].title).join(' + ');
       const tdiv = document.createElement('div');
       tdiv.className = 'test-card' + (tc ? ' done' : '');
-      tdiv.innerHTML = `<div class="level-icon">🧪</div><div class="level-info"><h3>${TESTS[ti].title}</h3><p>Mixed test • Fill in blank + Match</p></div><div style="font-size:1.3rem">${tc?'🏆':'▶️'}</div>`;
+      tdiv.innerHTML = `<div class="level-icon">🧪</div><div class="level-info"><h3>Test ${ti+1}: ${newLvNames}</h3><p>Mix of new + previous words!</p></div><div style="font-size:1.3rem">${tc?'🏆':'▶️'}</div>`;
       tdiv.onclick = () => startTest(ti);
       list.appendChild(tdiv);
     }
@@ -225,11 +261,11 @@ function setMode(mode) {
   ['flash','fill','match'].forEach(m => { const t=document.getElementById('tab-'+m); if(t) t.classList.toggle('active', m===mode); });
   if (mode==='flash') renderFlash();
   if (mode==='fill') { fillIndex=0; fillAnswered=false; renderFill(); }
-  if (mode==='match') renderMatch();
+  if (mode==='match') renderMatch('mode-content', LEVELS[currentLevel].words.slice(0,6), completeLevel, false);
 }
 
 function renderFlash() {
-  const words = LEVELS[currentLevel].words; const w = words[fcIndex]; fcFlipped = false;
+  const words=LEVELS[currentLevel].words; const w=words[fcIndex]; fcFlipped=false;
   document.getElementById('mode-content').innerHTML = `
     <div class="progress-wrap"><div class="progress-label">${fcIndex+1} of ${words.length}</div><div class="progress-bar"><div class="progress-fill" style="width:${Math.round((fcIndex+1)/words.length*100)}%"></div></div></div>
     <div class="flashcard front" id="fc" onclick="flipCard()"><div class="word" id="fc-word">${w.es}</div><div class="hint" id="fc-hint">tap to see English</div></div>
@@ -257,13 +293,13 @@ function renderFill() {
     <div id="fill-next"></div>`;
 }
 function pickFill(chosen) {
-  if (fillAnswered) return; fillAnswered=true;
+  if(fillAnswered)return; fillAnswered=true;
   const q=LEVELS[currentLevel].sentences[fillIndex];
   document.getElementById('q-text').textContent=q.q.replace('___','[ '+chosen+' ]');
   const fb=document.getElementById('q-fb');
   fb.textContent=chosen===q.blank?'Correct! ✅':'Answer: '+q.blank;
   fb.className='answer-feedback '+(chosen===q.blank?'correct':'wrong');
-  document.querySelectorAll('.option-btn').forEach(btn=>{
+  document.querySelectorAll('#opts-grid .option-btn').forEach(btn=>{
     if(btn.textContent===q.blank)btn.classList.add('correct');
     else if(btn.textContent===chosen)btn.classList.add('wrong');
     btn.onclick=null;
@@ -275,23 +311,21 @@ function pickFill(chosen) {
 }
 function nextFill() { fillIndex++; fillAnswered=false; renderFill(); }
 
-function renderMatch(container, words, onDone, purple) {
-  container = container || 'mode-content';
-  words = words || LEVELS[currentLevel].words.slice(0,6);
-  purple = purple || false;
+// ── SHARED MATCH ENGINE ──
+function renderMatch(containerId, words, onDone, purple) {
   const lefts=shuffle(words); const rights=shuffle(words);
   matchSelEs=null; matchSelEn=null; matchMatched=[];
   window._mW=words; window._mL=lefts; window._mR=rights;
-  window._mContainer=container; window._mOnDone=onDone; window._mPurple=purple;
-  const leftFn = purple ? 'tapTestLeft' : 'tapLeft';
-  const rightFn = purple ? 'tapTestRight' : 'tapRight';
-  const fillClass = purple ? ' purple' : '';
-  document.getElementById(container).innerHTML = `
-    <div class="progress-wrap"><div class="progress-label">0 of ${words.length}</div><div class="progress-bar"><div class="progress-fill${fillClass}" style="width:0%"></div></div></div>
+  window._mContainer=containerId; window._mOnDone=onDone; window._mPurple=purple;
+  const lFn=purple?'tapTestLeft':'tapLeft';
+  const rFn=purple?'tapTestRight':'tapRight';
+  const fillCls=purple?' purple':'';
+  document.getElementById(containerId).innerHTML=`
+    <div class="progress-wrap"><div class="progress-label">0 of ${words.length}</div><div class="progress-bar"><div class="progress-fill${fillCls}" style="width:0%"></div></div></div>
     <p class="match-hint">Tap Spanish, then its English match!</p>
     <div class="match-grid">
-      <div class="match-col" id="match-left">${lefts.map(w=>`<button class="match-btn" id="ml-${w.es.replace(/ /g,'_')}" onclick="${leftFn}('${w.es}')">${w.es}</button>`).join('')}</div>
-      <div class="match-col" id="match-right">${rights.map(w=>`<button class="match-btn" id="mr-${w.en.replace(/ /g,'_')}" onclick="${rightFn}('${w.en}')">${w.en}</button>`).join('')}</div>
+      <div class="match-col" id="ml-col">${lefts.map(w=>`<button class="match-btn" id="ml-${w.es.replace(/ /g,'_')}" onclick="${lFn}('${w.es}')">${w.es}</button>`).join('')}</div>
+      <div class="match-col" id="mr-col">${rights.map(w=>`<button class="match-btn" id="mr-${w.en.replace(/ /g,'_')}" onclick="${rFn}('${w.en}')">${w.en}</button>`).join('')}</div>
     </div>
     <div id="match-success"></div>`;
 }
@@ -299,45 +333,42 @@ function renderMatch(container, words, onDone, purple) {
 function tapLeft(es) {
   if(matchMatched.includes(es))return;
   matchSelEs=matchSelEs===es?null:es; refreshMatchUI();
-  if(matchSelEs&&matchSelEn)checkMatch(false);
+  if(matchSelEs&&matchSelEn)doCheckMatch();
 }
 function tapRight(en) {
-  const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
-  if(mEns.includes(en))return;
+  if(matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en).includes(en))return;
   matchSelEn=matchSelEn===en?null:en; refreshMatchUI();
-  if(matchSelEs&&matchSelEn)checkMatch(false);
+  if(matchSelEs&&matchSelEn)doCheckMatch();
 }
 function tapTestLeft(es) {
   if(matchMatched.includes(es))return;
   matchSelEs=matchSelEs===es?null:es; refreshMatchUI();
-  if(matchSelEs&&matchSelEn)checkMatch(true);
+  if(matchSelEs&&matchSelEn)doCheckMatch();
 }
 function tapTestRight(en) {
-  const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
-  if(mEns.includes(en))return;
+  if(matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en).includes(en))return;
   matchSelEn=matchSelEn===en?null:en; refreshMatchUI();
-  if(matchSelEs&&matchSelEn)checkMatch(true);
+  if(matchSelEs&&matchSelEn)doCheckMatch();
 }
 
-function checkMatch(isTest) {
+function doCheckMatch() {
   const word=window._mW.find(w=>w.es===matchSelEs);
   if(word&&word.en===matchSelEn) {
     matchMatched.push(matchSelEs); matchSelEs=null; matchSelEn=null; refreshMatchUI();
-    const n=matchMatched.length,t=window._mW.length;
+    const n=matchMatched.length, t=window._mW.length;
     const bar=document.querySelector('#'+window._mContainer+' .progress-fill');
     const lbl=document.querySelector('#'+window._mContainer+' .progress-label');
     if(bar)bar.style.width=Math.round(n/t*100)+'%';
     if(lbl)lbl.textContent=n+' of '+t;
-    if(n===t) {
-      const btnClass='wide-btn'+(isTest?' purple':'');
-      document.getElementById('match-success').innerHTML=`<div class="success-box">All matched! 🎉</div><button class="${btnClass}" onclick="window._mOnDone()">Continue →</button>`;
+    if(n===t){
+      const bc='wide-btn'+(window._mPurple?' purple':'');
+      document.getElementById('match-success').innerHTML=`<div class="success-box">All matched! 🎉</div><button class="${bc}" onclick="window._mOnDone()">Continue →</button>`;
     }
   } else {
-    const bEs=matchSelEs,bEn=matchSelEn; matchSelEs=null; matchSelEn=null;
+    const bEs=matchSelEs, bEn=matchSelEn; matchSelEs=null; matchSelEn=null;
     refreshMatchUI(bEs,bEn); setTimeout(()=>refreshMatchUI(),500);
   }
 }
-
 function refreshMatchUI(bEs,bEn) {
   const mEns=matchMatched.map(es=>window._mW.find(w=>w.es===es)?.en);
   window._mL.forEach(w=>{const b=document.getElementById('ml-'+w.es.replace(/ /g,'_'));if(!b)return;b.className='match-btn'+(matchMatched.includes(w.es)?' matched':w.es===bEs?' bad':w.es===matchSelEs?' selected':'');});
@@ -356,20 +387,19 @@ function completeLevel() {
 // ── TEST ──
 function startTest(testIdx) {
   currentTest=testIdx; testIndex=0; testAnswered=false;
-  const test=TESTS[testIdx];
-  document.getElementById('test-title').textContent='🧪 '+test.title;
+  document.getElementById('test-title').textContent='🧪 Test '+(testIdx+1);
   ['map-screen','level-screen'].forEach(id=>document.getElementById(id).classList.remove('active'));
   document.getElementById('test-screen').classList.add('active');
-  const allSents=[];
-  test.levels.forEach(lvIdx=>LEVELS[lvIdx].sentences.forEach(s=>allSents.push(s)));
-  testQuestions=shuffle(allSents);
+  testQuestions = buildTestQuestions(testIdx);
   renderTestFill();
 }
 
 function renderTestFill() {
   const q=testQuestions[testIndex]; const opts=shuffle(q.options); const total=testQuestions.length;
+  const isNew = TESTS[currentTest].newLevels.some(lvIdx => LEVELS[lvIdx].sentences.includes(q));
   document.getElementById('test-content').innerHTML=`
     <div class="phase-label">✏️ Fill in the Blank — Question ${testIndex+1} of ${total}</div>
+    ${!isNew ? '<div class="review-note">🔄 Review question from a previous level!</div>' : ''}
     <div class="progress-wrap"><div class="progress-label">${testIndex+1} of ${total}</div><div class="progress-bar"><div class="progress-fill purple" style="width:${Math.round((testIndex+1)/total*100)}%"></div></div></div>
     <div class="question-box"><div class="question-text" id="tq-text">${q.q.replace('___','______')}</div><div class="answer-feedback" id="tq-fb"></div></div>
     <div class="options-grid" id="test-opts">${opts.map(o=>`<button class="option-btn" onclick="pickTestFill('${o}')">${o}</button>`).join('')}</div>
@@ -388,30 +418,28 @@ function pickTestFill(chosen) {
     else if(btn.textContent===chosen)btn.classList.add('wrong');
     btn.onclick=null;
   });
-  const total=testQuestions.length;
-  if(testIndex<total-1) {
+  if(testIndex<testQuestions.length-1){
     document.getElementById('test-next').innerHTML=`<button class="wide-btn purple" onclick="nextTestQ()">Next →</button>`;
   } else {
     document.getElementById('test-next').innerHTML=`<button class="wide-btn purple" onclick="startTestMatch()">Now: Match the Words 🔗</button>`;
   }
 }
-
 function nextTestQ() { testIndex++; testAnswered=false; renderTestFill(); }
 
 function startTestMatch() {
-  const test=TESTS[currentTest];
-  const allWords=[];
-  test.levels.forEach(lvIdx=>LEVELS[lvIdx].words.forEach(w=>allWords.push(w)));
-  const pick=shuffle(allWords).slice(0,8);
-  document.getElementById('test-content').innerHTML=`<div class="phase-label">🔗 Match the Words — Mix of both topics!</div><div id="match-area"></div>`;
-  renderMatch('match-area', pick, showTestComplete, true);
+  const words = buildTestMatchWords(currentTest);
+  document.getElementById('test-content').innerHTML=`
+    <div class="phase-label">🔗 Match the Words — New + Previous!</div>
+    <div class="review-note">🔄 Includes words from earlier levels too!</div>
+    <div id="match-area"></div>`;
+  renderMatch('match-area', words, showTestComplete, true);
 }
 
 function showTestComplete() {
   if(!testsDone.includes(currentTest)){testsDone.push(currentTest);saveTests();}
   document.getElementById('test-content').innerHTML=`
     <div class="complete-box"><div class="emoji">🏆</div><h2 class="purple">Well Done!</h2>
-    <p>You completed ${TESTS[currentTest].title}!<br>You are doing so well, Rishika!<br>Keep it up! ⭐</p>
+    <p>You completed Test ${currentTest+1}!<br>You remembered old words too!<br>You are doing amazing, Rishika! ⭐</p>
     <button class="wide-btn purple" onclick="showMap()">Back to Map 🗺️</button></div>`;
 }
 
