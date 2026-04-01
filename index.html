@@ -173,7 +173,7 @@ function buildMap() {
   const list = document.getElementById('level-list');
   list.innerHTML = '';
   LEVELS.forEach((lv, i) => {
-    const unlocked = i === 0 || done.includes(i - 1);
+    const unlocked = true;
     const completed = done.includes(i);
     const div = document.createElement('div');
     div.className = 'level-card' + (completed ? ' done' : '') + (unlocked ? '' : ' locked');
